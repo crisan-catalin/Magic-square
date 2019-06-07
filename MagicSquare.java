@@ -1,19 +1,21 @@
 public class MagicSquare {
     private int arr[][];
     private String arrString[][];
+    private int startingValue;
 
-    public MagicSquare(int rows, int cols) throws Exception {
+    public MagicSquare(int rows, int cols, int startingValue) throws Exception {
         if (rows != cols || rows % 2 != 0) {
             throw new Exception("MagicSquare support only square matrix with even number of rows/cols.");
         }
 
         arr = new int[rows][cols];
         arrString = new String[rows][cols];
+        this.startingValue = startingValue;
     }
 
     public void generate() {
         int size = arr.length;
-        int currentValue = 0;
+        int currentValue = startingValue;
         int maxValue = (size * size) - 1;
         for (int i = 0; i < size; i++) {
             for (int j = size - 1; j >= 0; j--) {
